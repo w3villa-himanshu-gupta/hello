@@ -1,0 +1,46 @@
+<h1>Edit a article</h1>
+
+<% if @article.errors.any? %>
+<h2>The following error prevented the article from being saved</h2>
+<ul><% @article.errors.full_messages.each do |msg|%>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+
+<%= form_with(model: @article, local: true) do |f| %>
+<p>
+<%= f.label :title %><br>
+<%= f.text_field :title %>
+</p>
+<p>
+<%= f.label :description %><br>
+<%= f.text_field :desc %>
+</p>
+<p>
+<button><%= f.submit%></button>
+</p>
+<% end %>
+<br>
+<%= link_to 'Cancel and return to Articles List' , articles_path %> 
+
+
+<!--<h1>
+New student
+</h1>
+<%= form_with model: @article do |form| %>
+
+<div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+</div>
+<div>
+    <%= form.label :description %><br>
+    <%= form.text_field :desc %>
+</div>
+<div>
+<%= form.submit%>
+</div>
+
+<% end %>
+-->
