@@ -4312,3 +4312,153 @@ Migrating to DropUsers (20230201110021)
   [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-02-01 17:07:32 +0530
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 311)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.3ms | Allocations: 10583)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 12019)
+
+
+Started GET "/articles" for 127.0.0.1 at 2023-02-01 17:07:35 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.7ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (Duration: 19.9ms | Allocations: 7596)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 11741)
+Completed 200 OK in 39ms (Views: 31.3ms | ActiveRecord: 2.7ms | Allocations: 13572)
+
+
+Started GET "/about" for 127.0.0.1 at 2023-02-01 17:07:39 +0530
+Processing by PagesController#about as HTML
+Completed 406 Not Acceptable in 4ms (ActiveRecord: 0.0ms | Allocations: 1878)
+
+
+  
+ActionController::MissingExactTemplate (PagesController#about is missing a template for request formats: text/html):
+  
+actionpack (6.1.7) lib/action_controller/metal/implicit_render.rb:45:in `default_render'
+actionpack (6.1.7) lib/action_controller/metal/basic_implicit_render.rb:6:in `block in send_action'
+<internal:kernel>:90:in `tap'
+actionpack (6.1.7) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (6.1.7) lib/abstract_controller/base.rb:228:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+activesupport (6.1.7) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+actiontext (6.1.7) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.7) lib/action_text/engine.rb:59:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.7) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.7) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.7) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.5) lib/rack/etag.rb:27:in `call'
+rack (2.2.5) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.5) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.5) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.5) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (6.1.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.5) lib/rack/method_override.rb:24:in `call'
+rack (2.2.5) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.5) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-mini-profiler (2.3.4) lib/mini_profiler/profiler.rb:393:in `call'
+webpacker (5.4.3) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.4) lib/rack/proxy.rb:78:in `call'
+railties (6.1.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-02-01 17:07:43 +0530
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | Allocations: 123)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 3280)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 3750)
+
+
+Started GET "/articles" for 127.0.0.1 at 2023-02-01 17:07:47 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (2.8ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (Duration: 19.6ms | Allocations: 3511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 33.3ms | Allocations: 7231)
+Completed 200 OK in 35ms (Views: 31.6ms | ActiveRecord: 2.8ms | Allocations: 7635)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20230201114326)
+  [1m[35m (20.3ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `username` varchar(255), `email` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230201114326')[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`username`, `email`, `created_at`, `updated_at`) VALUES ('Himanshu', 'himanshu@gmail.com', '2023-02-01 11:46:22.631406', '2023-02-01 11:46:22.631406')[0m
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO `users` (`username`, `email`, `created_at`, `updated_at`) VALUES ('Himanshi', 'hk@gmail.com', '2023-02-01 11:47:47.016213', '2023-02-01 11:47:47.016213')[0m
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
