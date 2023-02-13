@@ -4462,3 +4462,752 @@ Migrating to CreateUsers (20230201114326)
   [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
   [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO `users` (`username`, `email`, `created_at`, `updated_at`) VALUES ('Himanshi', 'hk@gmail.com', '2023-02-01 11:47:47.016213', '2023-02-01 11:47:47.016213')[0m
   [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (8.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorReferenceToBooks (20230202094624)
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to Removecolumninbooks (20230202093633)
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` int[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to Removecolumninbooks (20230202093633)
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` int[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveAuthorIdFromBooks (20230202124548)
+  [1m[35m (83.5ms)[0m  [1m[35mALTER TABLE `books` DROP COLUMN `author_id`[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230202124548')[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mAuthor Load (1.9ms)[0m  [1m[34mSELECT `authors`.* FROM `authors`[0m
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorRefToBooks (20230202125117)
+  [1m[35m (18.1ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (24.7ms)[0m  [1m[35mCREATE INDEX `index_books_on_author_id` ON `books` (`author_id`)[0m
+  [1m[35m (40.8ms)[0m  [1m[35mALTER TABLE `books` ADD CONSTRAINT `fk_rails_53d51ce16a`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorRefToBooks (20230202125117)
+  [1m[35m (25.3ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id_id` bigint NOT NULL[0m
+  [1m[35m (31.8ms)[0m  [1m[35mCREATE INDEX `index_books_on_author_id_id` ON `books` (`author_id_id`)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE `books` ADD CONSTRAINT `fk_rails_e98c75b60d`
+FOREIGN KEY (`author_id_id`)
+  REFERENCES `author_ids` (`id`)
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorRefToBooks (20230202125117)
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id_id` bigint NOT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorRefToBooks (20230202125117)
+  [1m[35m (2.0ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveAuthorIdFromBooks (20230202124548)
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` int[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveAuthorIdFromBooks (20230202130451)
+  [1m[35m (61.0ms)[0m  [1m[35mALTER TABLE `books` DROP COLUMN `author_id`[0m
+  [1m[35m (40.2ms)[0m  [1m[35mALTER TABLE `books` DROP COLUMN `author_id_id`[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230202130451')[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorRefToBooks (20230202130905)
+  [1m[35m (14.4ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (28.8ms)[0m  [1m[35mCREATE INDEX `index_books_on_author_id` ON `books` (`author_id`)[0m
+  [1m[35m (35.6ms)[0m  [1m[35mALTER TABLE `books` ADD CONSTRAINT `fk_rails_53d51ce16a`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[36mBook Load (11.9ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveAuthorIdFromBooks (20230203024022)
+  [1m[35m (37.1ms)[0m  [1m[35mALTER TABLE `books` DROP COLUMN `author_id`[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230203024022')[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorIdRefToBooks (20230203025051)
+  [1m[35m (17.3ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (23.3ms)[0m  [1m[35mCREATE INDEX `index_books_on_author_id` ON `books` (`author_id`)[0m
+  [1m[35m (24.2ms)[0m  [1m[35mALTER TABLE `books` ADD CONSTRAINT `fk_rails_53d51ce16a`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[36mBook Load (32.0ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorIdRefToBooks (20230203025051)
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorIdRefToBooks (20230203025051)
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveAuthorIdFromBooks (20230206055739)
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE `Books` DROP COLUMN `author_id`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveAuthorIdFromBooks (20230206060257)
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE `Books` DROP COLUMN `author_id`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveAuthorIdFromBooks (20230206062144)
+  [1m[35m (61.7ms)[0m  [1m[35mALTER TABLE `books` DROP COLUMN `author_id`[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206062144')[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorIdRefToBooks (20230206062348)
+  [1m[35m (16.1ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (29.5ms)[0m  [1m[35mCREATE INDEX `index_books_on_author_id` ON `books` (`author_id`)[0m
+  [1m[35m (54.3ms)[0m  [1m[35mALTER TABLE `books` ADD CONSTRAINT `fk_rails_53d51ce16a`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorIdRefToBooks (20230206062348)
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint NOT NULL[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorIdRefToBooks (20230206063137)
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to RemoveAuthorIdFromBooks (20230206063731)
+  [1m[35m (57.7ms)[0m  [1m[35mALTER TABLE `books` DROP COLUMN `author_id`[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206063731')[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddAuthorRefToBooks (20230206064556)
+  [1m[35m (23.0ms)[0m  [1m[35mALTER TABLE `books` ADD `author_id` bigint[0m
+  [1m[35m (26.9ms)[0m  [1m[35mCREATE INDEX `index_books_on_author_id` ON `books` (`author_id`)[0m
+  [1m[35m (9.7ms)[0m  [1m[35mALTER TABLE `books` ADD CONSTRAINT `fk_rails_53d51ce16a`
+FOREIGN KEY (`author_id`)
+  REFERENCES `authors` (`id`)
+[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206064556')[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT `authors`.* FROM `authors`[0m
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT `authors`.* FROM `authors` ORDER BY `authors`.`id` ASC LIMIT 1[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`author_id` = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO `books` (`name`, `created_at`, `updated_at`, `author_id`) VALUES ('C programming', '2023-02-06 06:49:55.777746', '2023-02-06 06:49:55.777746', 1)[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Create (1.2ms)[0m  [1m[32mINSERT INTO `authors` (`author_name`, `created_at`, `updated_at`) VALUES ('Ullh man', '2023-02-06 06:53:21.029307', '2023-02-06 06:53:21.029307')[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuthor Load (1.2ms)[0m  [1m[34mSELECT `authors`.* FROM `authors` ORDER BY `authors`.`id` ASC LIMIT 1 OFFSET 1[0m
+  [1m[36mAuthor Load (1.4ms)[0m  [1m[34mSELECT `authors`.* FROM `authors`[0m
+  [1m[36mBook Load (44.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (10.0ms)[0m  [1m[32mINSERT INTO `books` (`name`, `created_at`, `updated_at`, `author_id`) VALUES ('Theory of Automata', '2023-02-06 07:05:22.566400', '2023-02-06 07:05:22.566400', 2)[0m
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (1.8ms)[0m  [1m[34mSELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO `books` (`name`, `created_at`, `updated_at`, `author_id`) VALUES ('Compiled designs', '2023-02-06 07:07:29.738398', '2023-02-06 07:07:29.738398', 2)[0m
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreatePhysicians (20230206071358)
+  [1m[35m (28.8ms)[0m  [1m[35mCREATE TABLE `physicians` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206071358')[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePatients (20230206071419)
+  [1m[35m (21.9ms)[0m  [1m[35mCREATE TABLE `patients` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206071419')[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateAppointments (20230206071519)
+  [1m[35m (69.9ms)[0m  [1m[35mCREATE TABLE `appointments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `appointment_date` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206071519')[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPhysicianRefToAppointment (20230206073333)
+  [1m[35m (17.4ms)[0m  [1m[35mALTER TABLE `appointments` ADD `AddPatientRefToAppointment` varchar(255)[0m
+  [1m[35m (15.3ms)[0m  [1m[35mALTER TABLE `appointments` ADD `physician_id` bigint NOT NULL[0m
+  [1m[35m (40.6ms)[0m  [1m[35mCREATE INDEX `index_appointments_on_physician_id` ON `appointments` (`physician_id`)[0m
+  [1m[35m (14.7ms)[0m  [1m[35mALTER TABLE `appointments` ADD CONSTRAINT `fk_rails_9c57b861f7`
+FOREIGN KEY (`physician_id`)
+  REFERENCES `physicians` (`id`)
+[0m
+  [1m[35m (19.9ms)[0m  [1m[35mALTER TABLE `appointments` ADD `patient_id` bigint NOT NULL[0m
+  [1m[35m (19.8ms)[0m  [1m[35mCREATE INDEX `index_appointments_on_patient_id` ON `appointments` (`patient_id`)[0m
+  [1m[35m (12.3ms)[0m  [1m[35mALTER TABLE `appointments` ADD CONSTRAINT `fk_rails_c63da04ab4`
+FOREIGN KEY (`patient_id`)
+  REFERENCES `patients` (`id`)
+[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206073333')[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` IN (1, 2)[0m
+  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE (`books`.`id` IN (1, 2) OR `books`.`id` BETWEEN 3 AND 5)[0m
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` IN (1, 2, 3, 5)[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` IN (1, 2, 3, 4, 5)[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` IN (1, 2, 3, 4, 5, 8)[0m
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`name` = 'Daas' LIMIT 1[0m
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 26 LIMIT 1[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = NULL LIMIT 1[0m
+  [1m[36mBook Load (1.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`name` = 'Compiled designs' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT `authors`.* FROM `authors` WHERE `authors`.`id` = 2 LIMIT 1[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO `books` (`name`, `created_at`, `updated_at`, `author_id`) VALUES ('Compiled designs', '2023-02-06 09:28:19.413652', '2023-02-06 09:28:19.413652', 2)[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`name` = 'Compiled designs' LIMIT 1[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT `books`.`name` FROM `books`[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT `books`.`id` FROM `books`[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT `books`.`id` FROM `books`[0m
+  [1m[36mBook Load (1.6ms)[0m  [1m[34mSELECT `books`.* FROM `books`[0m
+  [1m[36mBook Load (2.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`name` = 'Compiled designs'[0m
+  [1m[36mBook Load (1.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE (name = 'Compiled designs')[0m
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments`[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Create (1.4ms)[0m  [1m[32mINSERT INTO `physicians` (`name`, `created_at`, `updated_at`) VALUES ('Deepak Gupta', '2023-02-06 10:19:20.971998', '2023-02-06 10:19:20.971998')[0m
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Create (1.4ms)[0m  [1m[32mINSERT INTO `physicians` (`name`, `created_at`, `updated_at`) VALUES ('Himanshu Gupta', '2023-02-06 10:19:43.881382', '2023-02-06 10:19:43.881382')[0m
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Create (1.2ms)[0m  [1m[32mINSERT INTO `physicians` (`name`, `created_at`, `updated_at`) VALUES ('Seejal Agrawal', '2023-02-06 10:19:57.390737', '2023-02-06 10:19:57.390737')[0m
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Create (1.4ms)[0m  [1m[32mINSERT INTO `physicians` (`name`, `created_at`, `updated_at`) VALUES ('Devyani Agrawal', '2023-02-06 10:20:31.430430', '2023-02-06 10:20:31.430430')[0m
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Create (1.1ms)[0m  [1m[32mINSERT INTO `physicians` (`name`, `created_at`, `updated_at`) VALUES ('Dinesh Patel', '2023-02-06 10:20:46.053483', '2023-02-06 10:20:46.053483')[0m
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Create (1.1ms)[0m  [1m[32mINSERT INTO `physicians` (`name`, `created_at`, `updated_at`) VALUES ('Mukul', '2023-02-06 10:20:53.689289', '2023-02-06 10:20:53.689289')[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Create (1.3ms)[0m  [1m[32mINSERT INTO `physicians` (`name`, `created_at`, `updated_at`) VALUES ('Abhishek Lawaniya', '2023-02-06 10:21:07.765389', '2023-02-06 10:21:07.765389')[0m
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhysician Load (1.2ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians`[0m
+  [1m[36mPhysician Load (1.3ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` WHERE `physicians`.`id` = 2 LIMIT 1[0m
+  [1m[36mAppointment Load (1.3ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 2[0m
+  [1m[36mPatient Load (1.4ms)[0m  [1m[34mSELECT `patients`.* FROM `patients`[0m
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT `patients`.* FROM `patients`[0m
+  [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT `patients`.* FROM `patients`[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mPatient Load (1.1ms)[0m  [1m[34mSELECT `patients`.* FROM `patients`[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (1.4ms)[0m  [1m[32mINSERT INTO `patients` (`name`, `created_at`, `updated_at`) VALUES ('Radhe Shyam', '2023-02-06 10:35:18.894066', '2023-02-06 10:35:18.894066')[0m
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPatient Load (1.5ms)[0m  [1m[34mSELECT `patients`.* FROM `patients`[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (1.4ms)[0m  [1m[32mINSERT INTO `patients` (`name`, `created_at`, `updated_at`) VALUES ('Amit Verma', '2023-02-06 10:37:57.696569', '2023-02-06 10:37:57.696569')[0m
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT `patients`.* FROM `patients`[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (1.2ms)[0m  [1m[32mINSERT INTO `patients` (`name`, `created_at`, `updated_at`) VALUES ('Amit Kumar Sahani', '2023-02-06 10:38:28.342463', '2023-02-06 10:38:28.342463')[0m
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Create (0.8ms)[0m  [1m[32mINSERT INTO `patients` (`name`, `created_at`, `updated_at`) VALUES ('Durga Puja', '2023-02-06 10:38:38.058289', '2023-02-06 10:38:38.058289')[0m
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhysician Load (1.2ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` WHERE `physicians`.`id` = 3 LIMIT 1[0m
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 3[0m
+  [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT `patients`.* FROM `patients`[0m
+  [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` ORDER BY `patients`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`patient_id` = 1[0m
+  [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` = 1 LIMIT 1[0m
+  [1m[36mAppointment Load (1.7ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`patient_id` = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPhysicianRefToAppointment (20230206073333)
+  [1m[35m (21.7ms)[0m  [1m[35mALTER TABLE `appointments` DROP FOREIGN KEY fk_rails_c63da04ab4[0m
+  [1m[35m (83.9ms)[0m  [1m[35mALTER TABLE `appointments` DROP COLUMN `patient_id`[0m
+  [1m[35m (10.3ms)[0m  [1m[35mALTER TABLE `appointments` DROP FOREIGN KEY fk_rails_9c57b861f7[0m
+  [1m[35m (29.9ms)[0m  [1m[35mALTER TABLE `appointments` DROP COLUMN `physician_id`[0m
+  [1m[35m (20.1ms)[0m  [1m[35mALTER TABLE `appointments` DROP COLUMN `AddPatientRefToAppointment`[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (4.3ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20230206073333'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPhysicianRefToAppointment (20230206073333)
+  [1m[35m (14.3ms)[0m  [1m[35mALTER TABLE `appointments` ADD `physician_id` bigint NOT NULL[0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE INDEX `index_appointments_on_physician_id` ON `appointments` (`physician_id`)[0m
+  [1m[35m (8.4ms)[0m  [1m[35mALTER TABLE `appointments` ADD CONSTRAINT `fk_rails_9c57b861f7`
+FOREIGN KEY (`physician_id`)
+  REFERENCES `physicians` (`id`)
+[0m
+  [1m[35m (14.3ms)[0m  [1m[35mALTER TABLE `appointments` ADD `patient_id` bigint NOT NULL[0m
+  [1m[35m (60.6ms)[0m  [1m[35mCREATE INDEX `index_appointments_on_patient_id` ON `appointments` (`patient_id`)[0m
+  [1m[35m (34.7ms)[0m  [1m[35mALTER TABLE `appointments` ADD CONSTRAINT `fk_rails_c63da04ab4`
+FOREIGN KEY (`patient_id`)
+  REFERENCES `patients` (`id`)
+[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206073333')[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Load (0.4ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` WHERE `physicians`.`id` = 2 LIMIT 1[0m
+  [1m[36mAppointment Create (0.5ms)[0m  [1m[32mINSERT INTO `appointments` (`appointment_date`, `created_at`, `updated_at`, `physician_id`, `patient_id`) VALUES ('2023-02-07 00:00:00', '2023-02-06 11:12:54.934608', '2023-02-06 11:12:54.934608', 2, 1)[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Load (0.4ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` WHERE `physicians`.`id` = 3 LIMIT 1[0m
+  [1m[36mAppointment Create (0.5ms)[0m  [1m[32mINSERT INTO `appointments` (`appointment_date`, `created_at`, `updated_at`, `physician_id`, `patient_id`) VALUES ('2023-02-06 00:00:00', '2023-02-06 11:13:27.901343', '2023-02-06 11:13:27.901343', 3, 1)[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` ORDER BY `patients`.`id` DESC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Load (0.5ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` WHERE `physicians`.`id` = 3 LIMIT 1[0m
+  [1m[36mAppointment Create (0.5ms)[0m  [1m[32mINSERT INTO `appointments` (`appointment_date`, `created_at`, `updated_at`, `physician_id`, `patient_id`) VALUES ('2023-02-06 00:00:00', '2023-02-06 11:13:58.943996', '2023-02-06 11:13:58.943996', 3, 4)[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments`[0m
+  [1m[36mPhysician Load (0.6ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` INNER JOIN `appointments` ON `physicians`.`id` = `appointments`.`physician_id` WHERE `appointments`.`patient_id` = 1[0m
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`patient_id` = 1[0m
+  [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` = 1 LIMIT 1[0m
+  [1m[36mAppointment Load (1.6ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[36mAppointment Load (1.6ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` = 4 LIMIT 1[0m
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[36mPhysician Load (0.4ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` WHERE `physicians`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPhysicianRefToAppointment (20230206073333)
+  [1m[35m (12.8ms)[0m  [1m[35mALTER TABLE `appointments` DROP FOREIGN KEY fk_rails_c63da04ab4[0m
+  [1m[35m (49.6ms)[0m  [1m[35mALTER TABLE `appointments` DROP COLUMN `patient_id`[0m
+  [1m[35m (10.1ms)[0m  [1m[35mALTER TABLE `appointments` DROP FOREIGN KEY fk_rails_9c57b861f7[0m
+  [1m[35m (41.0ms)[0m  [1m[35mALTER TABLE `appointments` DROP COLUMN `physician_id`[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE `appointments` DROP COLUMN `AddPatientRefToAppointment`[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPhysicianRefToAppointment (20230206073333)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPhysicianRefToAppointment (20230206073333)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPhysicianRefToAppointment (20230206073333)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to AddPhysicianRefToAppointment (20230206073333)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[36mAppointment Load (3.6ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateAppointment (20230206115258)
+  [1m[35m (78.2ms)[0m  [1m[35mCREATE TABLE `appointments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `appointment_date` datetime, `physician_id` bigint NOT NULL, `patient_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_appointments_on_physician_id` (`physician_id`), INDEX `index_appointments_on_patient_id` (`patient_id`), CONSTRAINT `fk_rails_9c57b861f7`
+FOREIGN KEY (`physician_id`)
+  REFERENCES `physicians` (`id`)
+, CONSTRAINT `fk_rails_c63da04ab4`
+FOREIGN KEY (`patient_id`)
+  REFERENCES `patients` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230206115258')[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[36mPatient Load (1.4ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` ORDER BY `patients`.`id` DESC LIMIT 1[0m
+  [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` ORDER BY `patients`.`id` DESC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Load (0.5ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` WHERE `physicians`.`id` = 1 LIMIT 1[0m
+  [1m[36mAppointment Create (0.4ms)[0m  [1m[32mINSERT INTO `appointments` (`physician_id`, `patient_id`, `created_at`, `updated_at`) VALUES (1, 4, '2023-02-06 11:58:37.518800', '2023-02-06 11:58:37.518800')[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhysician Load (1.2ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mPhysician Load (1.3ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1[0m
+  [1m[36mPhysician Load (1.2ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.3ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1 /* loading for inspect */ LIMIT 11[0m
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1 /* loading for inspect */ LIMIT 11[0m
+  [1m[36mPhysician Load (1.8ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1 ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[36mPhysician Load (1.5ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1 ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` = 4 LIMIT 1[0m
+  [1m[36mPhysician Load (1.2ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` INNER JOIN `patients` ON `patients`.`id` = `appointments`.`patient_id` WHERE `appointments`.`physician_id` = 1[0m
+  [1m[36mPatient Load (1.5ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` ORDER BY `patients`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPhysician Load (0.7ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` WHERE `physicians`.`id` = 1 LIMIT 1[0m
+  [1m[36mAppointment Create (0.8ms)[0m  [1m[32mINSERT INTO `appointments` (`physician_id`, `patient_id`, `created_at`, `updated_at`) VALUES (1, 1, '2023-02-06 12:01:10.153007', '2023-02-06 12:01:10.153007')[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhysician Load (1.7ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (2.3ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` INNER JOIN `patients` ON `patients`.`id` = `appointments`.`patient_id` WHERE `appointments`.`physician_id` = 1[0m
+  [1m[36mPhysician Load (1.3ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1[0m
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` IN (4, 1)[0m
+  [1m[36mPhysician Load (1.4ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` INNER JOIN `patients` ON `patients`.`id` = `appointments`.`patient_id` WHERE `appointments`.`physician_id` = 1[0m
+  [1m[36mPhysician Load (1.4ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1[0m
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` IN (4, 1)[0m
+  [1m[36mPhysician Load (1.3ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1 /* loading for inspect */ LIMIT 11[0m
+  [1m[36mPatient Load (1.5ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` IN (4, 1)[0m
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1 /* loading for inspect */ LIMIT 11[0m
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` IN (4, 1)[0m
+  [1m[36mPhysician Load (1.5ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.3ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1 ORDER BY `appointments`.`id` DESC LIMIT 1[0m
+  [1m[36mPatient Load (1.4ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` = 1 LIMIT 1[0m
+  [1m[36mPhysician Load (1.7ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians` ORDER BY `physicians`.`id` ASC LIMIT 1[0m
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`physician_id` = 1[0m
+  [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` INNER JOIN `appointments` ON `patients`.`id` = `appointments`.`patient_id` WHERE `appointments`.`physician_id` = 1[0m
+  [1m[36mPatient Load (1.5ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` = 4 LIMIT 1[0m
+  [1m[36mPatient Load (1.5ms)[0m  [1m[34mSELECT `patients`.* FROM `patients` WHERE `patients`.`id` = 1 LIMIT 1[0m
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`patient_id` = 4[0m
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT `appointments`.* FROM `appointments` WHERE `appointments`.`patient_id` = 1[0m
+Started GET "/" for 127.0.0.1 at 2023-02-07 17:06:18 +0530
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.0ms | Allocations: 567)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 39.3ms | Allocations: 10365)
+Completed 200 OK in 62ms (Views: 44.2ms | ActiveRecord: 0.0ms | Allocations: 13530)
+
+
+Started GET "/articles" for 127.0.0.1 at 2023-02-07 17:06:24 +0530
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (3.3ms)[0m  [1m[34mSELECT `articles`.* FROM `articles`[0m
+  ↳ app/views/articles/index.html.erb:10
+  Rendered articles/index.html.erb within layouts/application (Duration: 116.1ms | Allocations: 8709)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 125.7ms | Allocations: 11909)
+Completed 200 OK in 134ms (Views: 119.3ms | ActiveRecord: 10.4ms | Allocations: 14518)
+
+
+  [1m[36mPhysician Load (0.5ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians`[0m
+  [1m[36mPhysician Load (1.4ms)[0m  [1m[34mSELECT `physicians`.* FROM `physicians`[0m
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT `patients`.* FROM `patients`[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (5.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateDocuments (20230209083504)
+  [1m[35m (37.2ms)[0m  [1m[35mCREATE TABLE `documents` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230209083504')[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.9ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateSections (20230209083720)
+  [1m[35m (58.9ms)[0m  [1m[35mCREATE TABLE `sections` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `table` int, `name` varchar(255), `document_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_sections_on_document_id` (`document_id`), CONSTRAINT `fk_rails_a6d8273870`
+FOREIGN KEY (`document_id`)
+  REFERENCES `documents` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230209083720')[0m
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateParagraphs (20230209084033)
+  [1m[35m (36.7ms)[0m  [1m[35mCREATE TABLE `paragraphs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `sentence` varchar(255), `section_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_paragraphs_on_section_id` (`section_id`), CONSTRAINT `fk_rails_9bd6b24ac1`
+FOREIGN KEY (`section_id`)
+  REFERENCES `sections` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230209084033')[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents`[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDocument Create (0.4ms)[0m  [1m[32mINSERT INTO `documents` (`name`, `created_at`, `updated_at`) VALUES ('Russia War', '2023-02-09 08:42:33.776370', '2023-02-09 08:42:33.776370')[0m
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDocument Create (1.3ms)[0m  [1m[32mINSERT INTO `documents` (`name`, `created_at`, `updated_at`) VALUES ('Economics', '2023-02-09 08:42:55.585355', '2023-02-09 08:42:55.585355')[0m
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDocument Load (1.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` ASC LIMIT 1[0m
+  [1m[36mSection Load (1.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[36mSection Load (1.1ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mSection Load (1.1ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 1 LIMIT 1[0m
+  [1m[36mSection Create (0.5ms)[0m  [1m[32mINSERT INTO `sections` (`table`, `name`, `document_id`, `created_at`, `updated_at`) VALUES (2, 'Jenesky Situation', 1, '2023-02-09 08:51:02.515451', '2023-02-09 08:51:02.515451')[0m
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mSection Load (2.1ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` ORDER BY `sections`.`id` ASC LIMIT 1[0m
+  [1m[36mDocument Load (1.2ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 1 LIMIT 1[0m
+  [1m[36mParagraph Load (1.3ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` WHERE `paragraphs`.`section_id` = 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mParagraph Create (0.8ms)[0m  [1m[32mINSERT INTO `paragraphs` (`sentence`, `section_id`, `created_at`, `updated_at`) VALUES ('Jenesky is ready to attack back on Russia', 1, '2023-02-09 08:56:16.311276', '2023-02-09 08:56:16.311276')[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mParagraph Load (0.4ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` ORDER BY `paragraphs`.`id` ASC LIMIT 1[0m
+  [1m[36mSection Load (1.6ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mDocument Load (2.0ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (1.2ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mSection Load (1.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mParagraph Load (0.8ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` INNER JOIN `sections` ON `paragraphs`.`section_id` = `sections`.`id` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (1.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mSection Load (1.6ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (0.4ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSection Create (0.3ms)[0m  [1m[32mINSERT INTO `sections` (`table`, `name`, `document_id`, `created_at`, `updated_at`) VALUES (1, 'jack', 2, '2023-02-09 09:04:45.335288', '2023-02-09 09:04:45.335288')[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDocument Load (2.2ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mSection Load (1.8ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (0.8ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (1.2ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mParagraph Load (1.0ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` INNER JOIN `sections` ON `paragraphs`.`section_id` = `sections`.`id` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mSection Load (0.6ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (0.6ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 2 LIMIT 1[0m
+  [1m[36mParagraph Create (0.3ms)[0m  [1m[32mINSERT INTO `paragraphs` (`sentence`, `section_id`, `created_at`, `updated_at`) VALUES ('hello', 2, '2023-02-09 09:05:57.145498', '2023-02-09 09:05:57.145498')[0m
+  [1m[36mTRANSACTION (4.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mSection Load (0.6ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (0.3ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mParagraph Load (0.6ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` INNER JOIN `sections` ON `paragraphs`.`section_id` = `sections`.`id` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (1.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` ASC LIMIT 1[0m
+  [1m[36mDocument Load (1.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` DESC LIMIT 1[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mParagraph Load (0.9ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` INNER JOIN `sections` ON `paragraphs`.`section_id` = `sections`.`id` WHERE `sections`.`document_id` = 2[0m
+  [1m[36mDocument Load (1.7ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` ASC LIMIT 1[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`document_id` = 1[0m
+  [1m[36mParagraph Load (0.4ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` INNER JOIN `sections` ON `paragraphs`.`section_id` = `sections`.`id` WHERE `sections`.`document_id` = 1[0m
+  [1m[36mParagraph Load (0.9ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` ORDER BY `paragraphs`.`id` DESC LIMIT 1[0m
+  [1m[36mSection Load (1.2ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 2 LIMIT 1[0m
+  [1m[36mParagraph Load (1.5ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` ORDER BY `paragraphs`.`id` DESC LIMIT 1[0m
+  [1m[36mParagraph Load (0.8ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` ORDER BY `paragraphs`.`id` ASC LIMIT 1[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mDocument Load (0.5ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` WHERE `documents`.`id` = 1 LIMIT 1[0m
+  [1m[36mDocument Load (0.6ms)[0m  [1m[34mSELECT `documents`.* FROM `documents` ORDER BY `documents`.`id` ASC LIMIT 1[0m
+  [1m[36mParagraph Load (1.0ms)[0m  [1m[34mSELECT `paragraphs`.* FROM `paragraphs` INNER JOIN `sections` ON `paragraphs`.`section_id` = `sections`.`id` WHERE `sections`.`document_id` = 1[0m
+  [1m[36mUser Load (14.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`username` = 'HImanshu Gupta' LIMIT 1[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'himanshu@.com' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`username` = 'HImanshu Gupta' LIMIT 1[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'himanshu@gmail.com' LIMIT 1[0m
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO `users` (`username`, `email`, `created_at`, `updated_at`) VALUES ('HImanshu Gupta', 'himanshu@gmail.com', '2023-02-10 02:25:31.710519', '2023-02-10 02:25:31.710519')[0m
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (10.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateAssemblies (20230212123435)
+  [1m[35m (46.4ms)[0m  [1m[35mCREATE TABLE `assemblies` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230212123435')[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateParts (20230212123512)
+  [1m[35m (18.7ms)[0m  [1m[35mCREATE TABLE `parts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `part_number` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230212123512')[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.7ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mAssembly Load (1.4ms)[0m  [1m[34mSELECT `assemblies`.* FROM `assemblies`[0m
+  [1m[36mPart Load (1.6ms)[0m  [1m[34mSELECT `parts`.* FROM `parts`[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAssembly Create (0.6ms)[0m  [1m[32mINSERT INTO `assemblies` (`name`, `created_at`, `updated_at`) VALUES ('hello', '2023-02-12 12:51:07.116287', '2023-02-12 12:51:07.116287')[0m
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAssembly Create (1.2ms)[0m  [1m[32mINSERT INTO `assemblies` (`name`, `created_at`, `updated_at`) VALUES ('hello 123', '2023-02-12 12:51:11.206564', '2023-02-12 12:51:11.206564')[0m
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPart Create (0.7ms)[0m  [1m[32mINSERT INTO `parts` (`part_number`, `created_at`, `updated_at`) VALUES ('hello gpt abpsed', '2023-02-12 12:52:09.923126', '2023-02-12 12:52:09.923126')[0m
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPart Create (0.8ms)[0m  [1m[32mINSERT INTO `parts` (`part_number`, `created_at`, `updated_at`) VALUES ('hello gpt abpsed second', '2023-02-12 12:52:15.725324', '2023-02-12 12:52:15.725324')[0m
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPart Load (1.3ms)[0m  [1m[34mSELECT `parts`.* FROM `parts` ORDER BY `parts`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('3957074253260364915', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateJoinTableAssemblyPart (20230212130608)
+  [1m[35m (28.2ms)[0m  [1m[35mCREATE TABLE `assemblies_parts` (`assembly_id` bigint NOT NULL, `part_id` bigint NOT NULL, INDEX `index_assemblies_parts_on_assembly_id_and_part_id` (`assembly_id`, `part_id`))[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20230212130608')[0m
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('3957074253260364915')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mPart Load (0.8ms)[0m  [1m[34mSELECT `parts`.* FROM `parts` ORDER BY `parts`.`id` ASC LIMIT 1[0m
+  [1m[36mAssembly Load (1.5ms)[0m  [1m[34mSELECT `assemblies`.* FROM `assemblies` ORDER BY `assemblies`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAssembly::HABTM_Parts Create (0.5ms)[0m  [1m[32mINSERT INTO `assemblies_parts` (`assembly_id`, `part_id`) VALUES (1, 1)[0m
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPart Load (0.7ms)[0m  [1m[34mSELECT `parts`.* FROM `parts` INNER JOIN `assemblies_parts` ON `parts`.`id` = `assemblies_parts`.`part_id` WHERE `assemblies_parts`.`assembly_id` = 1[0m
+  [1m[36mPart Load (1.3ms)[0m  [1m[34mSELECT `parts`.* FROM `parts` ORDER BY `parts`.`id` ASC LIMIT 1 OFFSET 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAssembly::HABTM_Parts Create (1.2ms)[0m  [1m[32mINSERT INTO `assemblies_parts` (`assembly_id`, `part_id`) VALUES (1, 2)[0m
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAssembly Load (1.2ms)[0m  [1m[34mSELECT `assemblies`.* FROM `assemblies`[0m
+  [1m[36mPart Load (1.4ms)[0m  [1m[34mSELECT `parts`.* FROM `parts` ORDER BY `parts`.`id` ASC LIMIT 1[0m
+  [1m[36mAssembly Load (1.7ms)[0m  [1m[34mSELECT `assemblies`.* FROM `assemblies` INNER JOIN `assemblies_parts` ON `assemblies`.`id` = `assemblies_parts`.`assembly_id` WHERE `assemblies_parts`.`part_id` = 1[0m
+  [1m[36mPart Load (1.3ms)[0m  [1m[34mSELECT `parts`.* FROM `parts`[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAssembly Create (1.1ms)[0m  [1m[32mINSERT INTO `assemblies` (`name`, `created_at`, `updated_at`) VALUES ('third assemblies', '2023-02-12 13:19:32.256007', '2023-02-12 13:19:32.256007')[0m
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPart Create (0.7ms)[0m  [1m[32mINSERT INTO `parts` (`part_number`, `created_at`, `updated_at`) VALUES ('first and second', '2023-02-12 13:20:40.351604', '2023-02-12 13:20:40.351604')[0m
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAssembly Load (1.3ms)[0m  [1m[34mSELECT `assemblies`.* FROM `assemblies` ORDER BY `assemblies`.`id` ASC LIMIT 1[0m
+  [1m[36mAssembly Load (1.3ms)[0m  [1m[34mSELECT `assemblies`.* FROM `assemblies` ORDER BY `assemblies`.`id` ASC LIMIT 1 OFFSET 1[0m
+  [1m[36mPart Load (0.6ms)[0m  [1m[34mSELECT `parts`.* FROM `parts` ORDER BY `parts`.`id` ASC LIMIT 1 OFFSET 2[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAssembly::HABTM_Parts Create (1.1ms)[0m  [1m[32mINSERT INTO `assemblies_parts` (`assembly_id`, `part_id`) VALUES (1, 3)[0m
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPart Load (1.8ms)[0m  [1m[34mSELECT `parts`.* FROM `parts` INNER JOIN `assemblies_parts` ON `parts`.`id` = `assemblies_parts`.`part_id` WHERE `assemblies_parts`.`assembly_id` = 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAssembly::HABTM_Parts Create (0.8ms)[0m  [1m[32mINSERT INTO `assemblies_parts` (`assembly_id`, `part_id`) VALUES (2, 3)[0m
+  [1m[36mTRANSACTION (4.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPart Load (0.9ms)[0m  [1m[34mSELECT `parts`.* FROM `parts` INNER JOIN `assemblies_parts` ON `parts`.`id` = `assemblies_parts`.`part_id` WHERE `assemblies_parts`.`assembly_id` = 2[0m
+  [1m[36mAssembly Load (1.5ms)[0m  [1m[34mSELECT `assemblies`.* FROM `assemblies` INNER JOIN `assemblies_parts` ON `assemblies`.`id` = `assemblies_parts`.`assembly_id` WHERE `assemblies_parts`.`part_id` = 3[0m
